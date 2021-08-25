@@ -38,12 +38,18 @@ class Dom {
   findAll(selector) {
     return this.$el.querySelectorAll(selector)
   }
-  /*
-   {
-     height: '30px',
-     font-size: '30px'
-    }
-  */
+  find(selector) {
+    return $(this.$el.querySelector(selector))
+  }
+  addClass(className) {
+    this.$el.classList.add(className)
+  }
+  removeClass(className) {
+    this.$el.classList.remove(className)
+  }
+  id() {
+    return this.data.id.split(':').map((item) => +item)
+  }
   css(styles = {}) {
     Object
         .keys(styles)
@@ -51,6 +57,20 @@ class Dom {
           this.$el.style[key] = styles[key]
         })
     return this.$el
+  }
+  focus() {
+    this.$el.focus()
+    return this
+  }
+  text(text) {
+    if (typeof text === 'string') {
+      this.$el.textContent = text
+      return this
+    }
+    if (this.$el.tagName.toLowerCase() === 'input') {
+      return this.$el.value.trim()
+    }
+    return this.$el.textContent.trim()
   }
 }
 

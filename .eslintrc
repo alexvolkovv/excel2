@@ -9,6 +9,9 @@
   "rules": {
     "semi": "off",
     "linebreak-style": "off",
-    "require-jsdoc": 0
+    "require-jsdoc": 0,
+    "arrow-parens": "off",
+    "comma-dangle": "off",
+    "no-debugger":"off"
   }
 }
